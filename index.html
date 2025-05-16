@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+        <title>happy birthday asmaaa🎉🎁</title>
+    </head>
+    <body>
+        <div class="party-background"></div>
+        <div class="happy birthday">
+            <h1>Happy Birthday</h1>
+            <h2>Semsem❤️💞</h2>
+            <h3>🖤🤍كل سنه وانتي طيبه يا دكتور</h3>
+        </div>
+        <script>
+            // Create elements in batches for better performance
+            function createElements(className, count) {
+                const fragment = document.createDocumentFragment();
+                for (let i = 0; i < count; i++) {
+                    const element = document.createElement('div');
+                    element.className = className;
+                    element.style.left = Math.random() * 100 + 'vw';
+                    
+                    if (className === 'confetti') {
+                        element.style.animationDelay = Math.random() * 4 + 's';
+                        element.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                    } else if (className === 'balloon') {
+                        element.style.top = Math.random() * 100 + 'vh';
+                        element.style.animationDelay = Math.random() * 6 + 's';
+                    } else if (className === 'sparkle') {
+                        element.style.top = Math.random() * 100 + 'vh';
+                        element.style.animationDelay = Math.random() * 2 + 's';
+                    }
+                    
+                    fragment.appendChild(element);
+                }
+                document.body.appendChild(fragment);
+            }
+
+            // Create elements with reduced numbers
+            requestAnimationFrame(() => {
+                createElements('confetti', 20);  // Reduced from 30
+                createElements('balloon', 10);   // Reduced from 15
+                createElements('sparkle', 20);   // Reduced from 30
+            });
+        </script>
+    </body> 
+</html>

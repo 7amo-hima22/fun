@@ -1,0 +1,171 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #151f29;
+    overflow: hidden;
+    position: relative;
+}
+
+.happy.birthday {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    font-family: 'Love Ya Like A Sister', cursive;
+    color: #fff;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff69b4, #8704c9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorChange 3s infinite;
+    will-change: filter;
+}
+
+h2 {
+    font-size: 3.5rem;
+    color: #7e0ebf;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite;
+    will-change: transform;
+}
+
+h3 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: glowText 2s ease-in-out infinite alternate;
+    direction:rtl;
+    margin-top: 2rem;
+    letter-spacing: 1px;
+    will-change: transform, text-shadow;
+}
+
+/* Party decorations */
+.confetti {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background-color: #bd363a;
+    animation: fall 4s linear infinite;
+    will-change: transform;
+}
+
+.confetti::before,
+.confetti::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+.confetti::before {
+    left: -7.5px;
+}
+
+.confetti::after {
+    top: -7.5px;
+}
+
+.confetti {
+    transform-origin: center bottom;
+    clip-path: path('M0,15 A15,15,0,0,1,15,15 A15,15,0,0,1,30,15 L15,0 z');
+}
+
+.balloon {
+    position: fixed;
+    width: 30px;
+    height: 35px;
+    background: radial-gradient(circle at 50% 50%, #ff69b4, #8704c9);
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sparkle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s linear infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes colorChange {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg) scale(0.8);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(-10px);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glowText {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                     0 0 20px rgba(255, 255, 255, 0.3),
+                     0 0 30px rgba(18, 122, 207, 0.5);
+        transform: translateY(0);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                     0 0 30px rgba(255, 255, 255, 0.5),
+                     0 0 40px rgba(18, 122, 207, 0.7);
+        transform: translateY(-5px);
+    }
+}
+
+
